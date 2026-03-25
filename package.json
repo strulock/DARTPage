@@ -1,0 +1,10 @@
+{
+  "name": "dartpage",
+  "private": true,
+  "scripts": {
+    "test": "htmlhint index.html"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4"
+  }
+}
