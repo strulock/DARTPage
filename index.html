@@ -1,125 +1,969 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vote No to DART</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vote NO on DART — Highland Park, May 2, 2026</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hp-navy: #1a2744;
+    --hp-gold: #b8963e;
+    --hp-gold-light: #d4af6a;
+    --hp-cream: #f8f4ed;
+    --hp-white: #ffffff;
+    --hp-dark: #111827;
+    --hp-gray: #6b7280;
+    --hp-red: #b91c1c;
+    --hp-red-light: #fef2f2;
+    --rule: 1px solid rgba(184,150,62,0.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --navy: #1a2e4a;
-      --gold: #d4982a;
-      --white: #ffffff;
-      --light-gray: #f7f7f7;
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--hp-cream);
+    color: var(--hp-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--hp-navy);
+    border-bottom: 3px solid var(--hp-gold);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-area img {
+    height: 48px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+  .logo-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(184,150,62,0.5);
+  }
+  .site-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--hp-gold-light);
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+  }
+  .site-name span {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  nav a {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--hp-gold-light); }
+
+  /* ── MOBILE NAV ── */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-toggle svg {
+    width: 26px;
+    height: 26px;
+    color: var(--hp-gold-light);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--hp-navy);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 72px;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(184,150,62,0.12) 0%, transparent 70%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.025) 39px,
+        rgba(255,255,255,0.025) 40px
+      );
+  }
+  .hero-election-date {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+    border: 1px solid rgba(184,150,62,0.5);
+    padding: 5px 16px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.0;
+    color: var(--hp-white);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 6px;
+  }
+  .hero h1 .no {
+    color: var(--hp-gold);
+    font-style: italic;
+  }
+  .hero h1 .dart-word {
+    display: block;
+    font-size: clamp(4rem, 11vw, 8.5rem);
+  }
+  .hero-rule {
+    width: 80px;
+    height: 3px;
+    background: var(--hp-gold);
+    margin: 28px auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--hp-gold);
+    color: var(--hp-navy);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 20px rgba(184,150,62,0.4);
+  }
+  .hero-cta:hover {
+    background: var(--hp-gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--hp-navy);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--hp-gray);
+    line-height: 1.75;
+    max-width: 680px;
+    margin-bottom: 52px;
+  }
+  .gold-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--hp-gold);
+    margin-bottom: 28px;
+  }
+
+  /* ── STAT BAND ── */
+  .stat-band {
+    background: var(--hp-navy);
+    border-top: 2px solid var(--hp-gold);
+    border-bottom: 2px solid var(--hp-gold);
+    padding: 48px 24px;
+  }
+  .stat-band-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--hp-gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  /* ── REASONS GRID ── */
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: rgba(184,150,62,0.15);
+    border: 1px solid rgba(184,150,62,0.2);
+  }
+  .reason-card {
+    background: var(--hp-white);
+    padding: 36px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .reason-card:hover { background: #fdfaf5; }
+  .reason-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(184,150,62,0.15);
+    line-height: 1;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+  }
+  .reason-icon {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .reason-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .reason-text {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+  .reason-tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+    border-top: 2px solid var(--hp-gold);
+    padding-top: 6px;
+  }
+
+  /* ── MAYOR QUOTE ── */
+  .quote-section {
+    background: var(--hp-navy);
+    padding: 80px 24px;
+  }
+  .quote-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--hp-gold);
+    line-height: 0.6;
+    display: block;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+  blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--hp-white);
+    line-height: 1.5;
+    margin-bottom: 28px;
+  }
+  .quote-attr {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    max-width: 780px;
+  }
+  .faq-item {
+    border-bottom: var(--rule);
+  }
+  .faq-item:first-child { border-top: var(--rule); }
+  .faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    line-height: 1.4;
+  }
+  .faq-q:hover { color: var(--hp-gold); }
+  .faq-chevron {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--hp-gold);
+    transition: transform 0.3s;
+    margin-top: 2px;
+  }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-a {
+    display: none;
+    padding: 0 0 22px 0;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.75;
+    max-width: 680px;
+  }
+  .faq-item.open .faq-a { display: block; }
+
+  /* ── NEWS LINKS ── */
+  .news-bg {
+    background: #f1ece2;
+    border-top: 1px solid rgba(184,150,62,0.2);
+    border-bottom: 1px solid rgba(184,150,62,0.2);
+  }
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .news-card {
+    background: var(--hp-white);
+    border: 1px solid rgba(184,150,62,0.2);
+    padding: 24px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--hp-gold);
+    transition: height 0.25s;
+  }
+  .news-card:hover { border-color: var(--hp-gold); box-shadow: 0 4px 20px rgba(184,150,62,0.1); }
+  .news-card:hover::before { height: 100%; }
+  .news-source {
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+    margin-bottom: 8px;
+  }
+  .news-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .news-desc {
+    font-size: 0.82rem;
+    color: var(--hp-gray);
+    line-height: 1.55;
+  }
+  .news-arrow {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hp-gold);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--hp-dark);
+    color: rgba(255,255,255,0.5);
+    padding: 36px 24px;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    border-top: 3px solid var(--hp-gold);
+  }
+  footer strong { color: rgba(255,255,255,0.75); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    background: #eef4fb;
+    border-left: 4px solid #1a2744;
+    padding: 18px 22px;
+    margin-bottom: 40px;
+    max-width: 780px;
+  }
+  .info-box p {
+    font-size: 0.9rem;
+    color: #1a2744;
+    line-height: 1.65;
+  }
+  .info-box a {
+    color: var(--hp-gold);
+    font-weight: 600;
+  }
+
+  /* ── RESPONSIVE: TABLET ── */
+  @media (max-width: 900px) {
+    .stat-band-inner {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
     }
-
-    body {
-      font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--light-gray);
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
+    .reasons-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
+    .news-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .section { padding: 60px 20px; }
+    .hero { padding: 60px 20px 56px; }
+    .quote-section { padding: 60px 20px; }
+  }
 
-    .card {
-      background: var(--white);
-      border: 4px solid var(--navy);
-      max-width: 720px;
+  /* ── RESPONSIVE: MOBILE ── */
+  @media (max-width: 640px) {
+    /* Show hamburger, hide desktop nav */
+    .nav-toggle { display: block; }
+    nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--hp-navy);
+      border-top: 1px solid rgba(184,150,62,0.3);
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    nav.open { display: flex; }
+    nav a {
+      padding: 14px 0;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       width: 100%;
-      padding: 3rem 2.5rem;
-      text-align: center;
     }
+    nav a:last-child { border-bottom: none; }
 
-    .tagline {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--gold);
-      text-transform: uppercase;
+    .header-inner { padding: 12px 16px; }
+    .logo-area img { height: 36px; }
+    .logo-divider { height: 30px; }
+    .site-name { font-size: 1rem; }
+    .site-name span { font-size: 0.62rem; }
+
+    .hero { padding: 48px 16px 44px; }
+    .hero-election-date {
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .hero-rule { margin: 20px auto; }
+    .hero-sub { margin-bottom: 32px; }
+    .hero-cta {
+      padding: 14px 32px;
+      font-size: 0.9rem;
     }
 
-    .headline {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 900;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 0.25rem;
+    .stat-band { padding: 36px 16px; }
+    .stat-band-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
+    .stat-num { font-size: 2.2rem; }
+    .stat-label { font-size: 0.75rem; }
 
-    .headline .no {
-      font-size: 5rem;
-      display: block;
-    }
+    .section { padding: 48px 16px; }
+    .section-intro { margin-bottom: 36px; font-size: 0.95rem; }
 
-    .headline .to-dart {
-      font-size: 3rem;
-      display: block;
-      letter-spacing: 0.05em;
+    .reasons-grid {
+      grid-template-columns: 1fr;
     }
+    .reason-card { padding: 28px 20px; }
+    .reason-num { font-size: 2.8rem; top: 16px; right: 16px; }
 
-    .divider {
-      width: 60%;
-      height: 3px;
-      background: var(--gold);
-      border: none;
-      margin: 1.5rem auto;
-    }
+    .quote-section { padding: 48px 16px; }
+    .quote-mark { font-size: 4rem; }
 
-    .subheading {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700;
-      font-style: italic;
-      font-size: 1.4rem;
-      color: var(--navy);
-      line-height: 1.4;
-    }
+    .faq-q { font-size: 0.95rem; padding: 18px 0; }
+    .faq-a { font-size: 0.88rem; }
 
-    .subheading strong {
-      text-decoration: underline;
-      font-weight: 700;
-    }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-card { padding: 20px; }
 
-    .disclaimer {
-      margin-top: 2rem;
-      font-size: 0.7rem;
-      color: #666;
-      line-height: 1.4;
-    }
+    .info-box { padding: 14px 16px; }
 
-    @media (max-width: 480px) {
-      .card { padding: 2rem 1.5rem; }
-      .headline .no { font-size: 3.5rem; }
-      .headline .to-dart { font-size: 2rem; }
-      .tagline { font-size: 1.2rem; }
-      .subheading { font-size: 1.1rem; }
+    footer { padding: 28px 16px; font-size: 0.75rem; }
+  }
+
+  /* ── RESPONSIVE: SMALL MOBILE ── */
+  @media (max-width: 380px) {
+    .stat-band-inner {
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
-  </style>
+    .stat-num { font-size: 2rem; }
+    .logo-area img { height: 30px; }
+    .logo-divider { display: none; }
+    .site-name { font-size: 0.9rem; }
+  }
+</style>
 </head>
 <body>
-  <main class="card">
-    <p class="tagline">Vote</p>
-    <h1 class="headline">
-      <span class="no">NO</span>
-      <span class="to-dart">TO DART</span>
-    </h1>
-    <hr class="divider">
-    <p class="subheading">
-      Say <strong>NO</strong> to the<br>
-      $8 Million Single Bus Route
-    </p>
-    <p class="disclaimer">
-      Pol. Ad. Paid for by the Highland Park Community League, Ralph Perry-Miller, Treasurer.
-    </p>
-  </main>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <img src="https://highlandparkcommunityleague.org/wp-content/uploads/2019/08/HP-community-league-logo.png" alt="Highland Park Community League">
+      <div class="logo-divider"></div>
+      <div class="site-name">
+        Vote No on DART
+        <span>May 2, 2026 Special Election</span>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <nav id="main-nav">
+      <a href="#reasons">Why Vote No</a>
+      <a href="#faq">FAQ</a>
+      <a href="#news">News</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-election-date">Special Election &middot; May 2, 2026 &middot; Highland Park, Texas</div>
+  <h1>
+    Vote <span class="no">No</span> on
+    <span class="dart-word">DART</span>
+  </h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">
+    Highland Park residents deserve to decide whether a broken, inequitable system is still worth $9 million of our sales tax every year.
+  </p>
+  <a href="#reasons" class="hero-cta">See Why It's Time to Leave</a>
+</section>
+
+<!-- STAT BAND -->
+<div class="stat-band">
+  <div class="stat-band-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">$114M+</div>
+      <div class="stat-label">Total contributed to DART by Highland Park since joining in 1983</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">30&cent;</div>
+      <div class="stat-label">Services returned per dollar paid &mdash; per DART's own 2023 independent analysis</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">$9M</div>
+      <div class="stat-label">Projected 2026 contribution &mdash; half our entire local sales tax capacity</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">33</div>
+      <div class="stat-label">Average daily boardings on the single remaining Highland Park bus route</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY VOTE NO -->
+<div id="reasons">
+  <div class="section">
+    <div class="reveal">
+      <div class="section-label">The Case for Withdrawal</div>
+      <h2 class="section-title">Six Reasons Highland Park<br>Should Vote No</h2>
+      <p class="section-intro">
+        For over 40 years, Highland Park has faithfully funded DART. The return on that investment &mdash; in service, representation, and value &mdash; has steadily eroded. Here is the case for change.
+      </p>
+    </div>
+    <div class="reasons-grid">
+
+      <div class="reason-card reveal">
+        <span class="reason-num">01</span>
+        <span class="reason-icon">&#x1F4CA;</span>
+        <div class="reason-title">A Fundamentally Unfair Financial Equation</div>
+        <p class="reason-text">Per a 2023 independent financial analysis commissioned by DART itself, Highland Park contributed approximately $6.3 million and received approximately $1.9 million in services &mdash; a return of roughly 30 cents on the dollar. Since joining in 1983, the town has paid over $114 million total. A separate 2026 DART study identifies 86% of DART's services as "regional" in nature &mdash; and does not list Highland Park as a location of any regional transit infrastructure.</p>
+        <div class="reason-tag">Financial Inequity</div>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-num">02</span>
+        <span class="reason-icon">&#x1F68C;</span>
+        <div class="reason-title">Declining Service &mdash; Nearly Nothing Left</div>
+        <p class="reason-text">Prior to 2014, four fixed-route bus services operated in Highland Park. Today, only one remains &mdash; a single route along Preston Road with approximately 12,000 annual boardings, averaging 33 riders per day. No light rail serves the town. Community survey data shows only 4&ndash;5% of residents report using DART even occasionally. The town also receives GoLink on-demand and paratransit service &mdash; modest additions that do not justify a $9 million annual contribution.</p>
+        <div class="reason-tag">Service Failure</div>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-num">03</span>
+        <span class="reason-icon">&#x1F3DB;</span>
+        <div class="reason-title">No Real Voice in Governance</div>
+        <p class="reason-text">Highland Park has historically shared a single DART board seat with three other cities &mdash; Addison, Richardson, and University Park. DART's proposed new governance model gives the town its own dedicated seat, but with a weighted vote of just 0.44 &mdash; about 2% of the board's total voting power. We contribute nearly 1% of DART's total sales tax revenue yet hold a fractional voice over how it is spent. DART's proposed General Mobility Program would return approximately $4.4 million to Highland Park over six years &mdash; less than half of one year's contribution.</p>
+        <div class="reason-tag">Governance Imbalance</div>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-num">04</span>
+        <span class="reason-icon">&#x1F4B0;</span>
+        <div class="reason-title">Sales Tax Locked Away From Local Needs</div>
+        <p class="reason-text">State law capped property tax revenue growth at 3.5% in 2019, making sales tax the only meaningful flexible revenue for cities like ours. Dedicating half of our sales tax capacity to DART severely constrains the town's ability to fund public safety, emergency services, and aging infrastructure.</p>
+        <div class="reason-tag">Budget Constraint</div>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-num">05</span>
+        <span class="reason-icon">&#x1F5FA;</span>
+        <div class="reason-title">A Structurally Broken Regional System</div>
+        <p class="reason-text">DART's model was designed in 1983 for a region that no longer exists. No new city has joined in over 40 years. Two original members withdrew. The current structure locks 13 cities into funding a system covering a region of millions, with no mechanism for genuine regional reform without state legislative action in 2027 at the earliest.</p>
+        <div class="reason-tag">Systemic Failure</div>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-num">06</span>
+        <span class="reason-icon">&#x1F5F3;</span>
+        <div class="reason-title">Voters Deserve This Decision</div>
+        <p class="reason-text">The Town Council did not make this decision unilaterally &mdash; they placed it before the voters at the explicit direction of the Legislature. This election ensures the issue is decided openly, locally, and democratically by the residents who fund every dollar of the town's budget. A vote no is a vote for self-determination.</p>
+        <div class="reason-tag">Democracy &amp; Accountability</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MAYOR QUOTE -->
+<div class="quote-section">
+  <div class="quote-inner">
+    <span class="quote-mark">&ldquo;</span>
+    <blockquote>
+      The May 2 election ensures the issue is decided openly, locally and democratically by the residents who, through their elected Town Council, are accountable for every dollar allocated in the Town's budget.
+    </blockquote>
+    <div class="quote-attr">&mdash; Mayor Will C. Beecherl, Town of Highland Park<br>Dallas Morning News Op-Ed, March 10, 2026</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div id="faq">
+  <div class="section">
+    <div class="reveal">
+      <div class="section-label">Frequently Asked Questions</div>
+      <h2 class="section-title">What You Need to Know</h2>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="info-box reveal">
+      <p>
+        <strong>Official neutral information</strong> about the election, DART finances, service levels, governance, and withdrawal mechanics is published by the Town of Highland Park at
+        <a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener">hptx.org/599/DART-Transportation-Information</a>.
+        The Town is required by state law to remain neutral &mdash; that page is your objective reference.
+      </p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          What does a &ldquo;No&rdquo; vote actually mean on May 2?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">A &ldquo;No&rdquo; vote means you want Highland Park to withdraw from DART membership. The ballot asks: &ldquo;Shall Dallas Area Rapid Transit be continued in the Town of Highland Park?&rdquo; Voting <strong>NO</strong> ends our membership. Voting Yes continues it.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          What happens to DART service if we vote No?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">DART would cease all service within town limits the day after the election is certified. For Highland Park, that means the single Preston Road bus route (Route 237) and GoLink on-demand service would end. The town can and will explore alternative transit providers &mdash; including rideshare-based on-demand options &mdash; to replace these services at a fraction of the current cost.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Will we still have to pay DART taxes after withdrawal?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Yes, temporarily. Under Texas law, the Texas Comptroller will continue collecting Highland Park's 1% DART sales tax until the town's proportional share of outstanding obligations is satisfied. DART estimates that obligation at approximately $30&ndash;40 million. At current annual collections of roughly $8 million, it would be retired over several years &mdash; though the Town may have the option to satisfy it with a lump-sum payment. Once cleared, that full sales tax capacity returns to local control.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          How much is Highland Park actually paying DART each year?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">In 2025, Highland Park contributed approximately $8 million to DART &mdash; just 1% of DART's $900 million sales tax revenue. The 2026 projection is approximately $9 million. In return, DART's total service investment within town limits was approximately $1.9 million in 2023 &mdash; primarily the Preston Road bus route averaging about 33 riders per day.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          What about residents who rely on paratransit or have mobility needs?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">This is a genuine concern the town takes seriously. Highland Park is committed to ensuring alternative transit options are in place before any withdrawal takes effect. Third-party providers, rideshare partnerships, and coordinated regional connectivity options are being evaluated to ensure no resident is left without options.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Isn't regional transit important? Won't this hurt the DFW region?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Mass transit is vital to the region's long-term success &mdash; and that's precisely the problem. DART's current funding and governance model is broken. It relies on just 13 cities while serving a region of millions, with no new members in over 40 years. Mayor Beecherl and the Town Council have called on the Legislature to create a fully restructured regional transit authority with an equitable, region-wide funding model. Voting No sends that message clearly.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          When and where do I vote?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">The special election is <strong>Saturday, May 2, 2026</strong>. Early voting runs April 20&ndash;28. Check with Dallas County Elections at <a href="https://www.dallascountyvotes.org" style="color:var(--hp-gold)">dallascountyvotes.org</a> for polling locations and registration deadlines. You must be a registered voter in Highland Park.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Who is behind this campaign?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">This campaign is organized by the Highland Park Community League, a nonpartisan civic organization dedicated to self-governance and preserving superior municipal services for Highland Park residents since its founding. Pol. Ad. Paid for by the Highland Park Community League, Ralph Perry-Miller, Treasurer.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div id="news" class="news-bg">
+  <div class="section">
+    <div class="reveal">
+      <div class="section-label">Press &amp; Coverage</div>
+      <h2 class="section-title">In the News</h2>
+      <p class="section-intro">Read what journalists, policy analysts, and community leaders are saying about the DART withdrawal election.</p>
+    </div>
+
+    <div class="news-grid">
+
+      <a class="news-card reveal" href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener" style="border-color:rgba(184,150,62,0.5); background:#fdfaf5;">
+        <div class="news-source" style="color:#1a2744;">Town of Highland Park &mdash; Official DART Info Page</div>
+        <div class="news-headline">DART Transportation Information &mdash; Official Town Resource</div>
+        <div class="news-desc">The Town's comprehensive, neutral DART information hub: full financial history, service details, governance structure, withdrawal mechanics, debt obligations, and future transportation planning options. The authoritative starting point for informed voters.</div>
+        <div class="news-arrow">Read the Official Info &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.dallasnews.com/opinion/commentary/2026/03/10/highland-park-mayor-why-our-town-is-re-examining-dart/" target="_blank" rel="noopener">
+        <div class="news-source">Dallas Morning News &mdash; Op-Ed</div>
+        <div class="news-headline">Highland Park Mayor: Why Our Town Is Re-Examining DART</div>
+        <div class="news-desc">Mayor Will Beecherl lays out the full case &mdash; declining service, lost revenue, governance failures, and why voters deserve a say. The definitive statement of the pro-withdrawal position.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.texastribune.org/2026/01/05/dallas-suburbs-withdrawal-public-transit/" target="_blank" rel="noopener">
+        <div class="news-source">Texas Tribune</div>
+        <div class="news-headline">North Texas' Largest Public Transit System May Unravel in 2026</div>
+        <div class="news-desc">The Tribune examines the suburban mutiny against DART, the budget pressures driving it, and what withdrawal would mean for tens of thousands of daily riders across the region.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.wfaa.com/article/news/local/highland-park-calls-special-election-dart-membership/287-b0834338-33d4-47b7-b476-b4ff278fbebb" target="_blank" rel="noopener">
+        <div class="news-source">WFAA (ABC Dallas)</div>
+        <div class="news-headline">Highland Park Calls Special Election on DART Membership</div>
+        <div class="news-desc">WFAA covers the Town Council's vote to place the DART question on the May 2 ballot, including the independent analysis showing $6.3M contributed vs. $1.9M in services received in 2023.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.nbcdfw.com/news/local/highland-park-farmers-branch-hold-elections-dart/3941158/" target="_blank" rel="noopener">
+        <div class="news-source">NBC DFW</div>
+        <div class="news-headline">Highland Park, Farmers Branch Will Hold Elections on Pulling Out of DART</div>
+        <div class="news-desc">NBC 5 covers the back-to-back council votes in Highland Park and Farmers Branch, featuring reactions from residents on both sides of the debate and analysis of the governance frustrations driving the elections.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.keranews.org/transportation/2026-03-25/dart-riders-potential-service-cuts-addison-university-highland-park-cities" target="_blank" rel="noopener">
+        <div class="news-source">KERA News</div>
+        <div class="news-headline">DART Hears from Riders on Potential Service Cuts in Addison and Park Cities</div>
+        <div class="news-desc">KERA's coverage of DART's March 24 public hearing outlines exactly which services would end in Highland Park and University Park if voters choose to withdraw, and what alternatives cities are exploring.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.dmagazine.com/frontburner/2025/12/plano-farmers-brand-highland-park-irving-leaving-dart/" target="_blank" rel="noopener">
+        <div class="news-source">D Magazine</div>
+        <div class="news-headline">North Texas Cities May Find Leaving DART Is Quite Hard</div>
+        <div class="news-desc">D Magazine provides historical context on DART withdrawal elections, noting that Highland Park is among the few cities whose financial case is most compelling &mdash; paying in the most while receiving the least in return.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.audacy.com/krld/news/local/highland-park-moves-forward-with-dart-withdrawal-election" target="_blank" rel="noopener">
+        <div class="news-source">KRLD / Audacy</div>
+        <div class="news-headline">Highland Park Moves Forward With DART Withdrawal Election</div>
+        <div class="news-desc">As Plano canceled its election after striking a deal with DART, Highland Park reaffirmed it is moving forward &mdash; pointing out it is the only member city without regional transit like light rail.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+      <a class="news-card reveal" href="https://www.hptx.org/m/newsflash/home/detail/1609" target="_blank" rel="noopener">
+        <div class="news-source">Town of Highland Park &mdash; Official</div>
+        <div class="news-headline">Highland Park Residents to Vote on Continued DART Membership</div>
+        <div class="news-desc">The official Town announcement of the May 2 special election, including the Town's formal rationale for why voters &mdash; not the Council &mdash; should make this decision for their community.</div>
+        <div class="news-arrow">Read More &rarr;</div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Vote NO on DART &mdash; May 2, 2026</strong></p>
+  <p style="margin-top:8px;">Pol. Ad. Paid for by the Highland Park Community League &middot; Ralph Perry-Miller, Treasurer<br>
+  4848 Lemmon Avenue, Suite 100-578 &middot; Dallas, Texas 75219</p>
+  <p style="margin-top:10px; font-size:0.72rem; color:rgba(255,255,255,0.3);">notodart.org &middot; This site is for informational and advocacy purposes. For official election information, visit <a href="https://www.dallascountyvotes.org" style="color:rgba(255,255,255,0.4)">dallascountyvotes.org</a>.</p>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        setTimeout(function() { entry.target.classList.add('visible'); }, 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(function(el) { observer.observe(el); });
+
+  // Mobile nav toggle
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('main-nav');
+  toggle.addEventListener('click', function() {
+    var isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  // Close nav when a link is tapped
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
 </body>
 </html>
