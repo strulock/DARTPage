@@ -38,6 +38,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -45,9 +46,14 @@
     --hp-gold: #b8963e;
     --hp-gold-light: #d4af6a;
     --hp-cream: #f8f4ed;
+    --hp-cream-hover: #fdfaf5;
+    --hp-news-bg: #f1ece2;
+    --hp-info-bg: #eef4fb;
     --hp-white: #ffffff;
     --hp-dark: #111827;
     --hp-gray: #6b7280;
+    --hp-gray-mid: #4b5563;
+    --hp-gray-dark: #374151;
     --hp-red: #b91c1c;
     --hp-red-light: #fef2f2;
     --rule: 1px solid rgba(184,150,62,0.35);
@@ -350,7 +356,7 @@
     position: relative;
     transition: background 0.2s;
   }
-  .reason-card:hover { background: #fdfaf5; }
+  .reason-card:hover { background: var(--hp-cream-hover); }
   .reason-num {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
@@ -378,7 +384,7 @@
   }
   .reason-text {
     font-size: 0.92rem;
-    color: #4b5563;
+    color: var(--hp-gray-mid);
     line-height: 1.7;
   }
   .reason-tag {
@@ -469,7 +475,7 @@
     display: none;
     padding: 0 0 22px 0;
     font-size: 0.95rem;
-    color: #374151;
+    color: var(--hp-gray-dark);
     line-height: 1.75;
     max-width: 680px;
   }
@@ -477,7 +483,7 @@
 
   /* ── NEWS LINKS ── */
   .news-bg {
-    background: #f1ece2;
+    background: var(--hp-news-bg);
     border-top: 1px solid rgba(184,150,62,0.2);
     border-bottom: 1px solid rgba(184,150,62,0.2);
   }
@@ -578,15 +584,15 @@
 
   /* ── INFO BOX ── */
   .info-box {
-    background: #eef4fb;
-    border-left: 4px solid #1a2744;
+    background: var(--hp-info-bg);
+    border-left: 4px solid var(--hp-navy);
     padding: 18px 22px;
     margin-bottom: 40px;
     max-width: 780px;
   }
   .info-box p {
     font-size: 0.9rem;
-    color: #1a2744;
+    color: var(--hp-navy);
     line-height: 1.65;
   }
   .info-box a {
@@ -704,6 +710,26 @@
     .logo-divider { display: none; }
     .site-name { font-size: 0.9rem; }
   }
+
+  /* ── UTILITY CLASSES ── */
+  .no-styled { font-style: italic; text-decoration: underline; }
+  .link-gold { color: var(--hp-gold); }
+  .quote-link { text-decoration: none; color: inherit; display: block; }
+
+  /* ── STAT "ONLY 1" ── */
+  .stat-only { font-size: 1em; }
+  .stat-single { font-size: 60px; }
+
+  /* ── FEATURED NEWS CARD ── */
+  .news-card--featured { border-color: rgba(184,150,62,0.5); background: var(--hp-cream-hover); }
+  .news-card--featured .news-source { color: var(--hp-navy); }
+
+  /* ── FOOTER TYPOGRAPHY ── */
+  .footer-tagline { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; letter-spacing: 0.04em; color: var(--hp-gold-light); }
+  .footer-election-date { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 6px; }
+  .footer-polad { margin-top: 8px; }
+  .footer-legal { margin-top: 10px; font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+  .footer-legal a { color: rgba(255,255,255,0.4); }
 </style>
 </head>
 <body>
@@ -715,7 +741,7 @@
       <img src="hpcl-logo.png" alt="Highland Park Community League">
       <div class="logo-divider"></div>
       <div class="site-name">
-        Vote <em style="font-style:italic; text-decoration:underline;">NO</em> to DART
+        Vote <em class="no-styled">NO</em> to DART
         <span>May 2, 2026 Municipal Election</span>
       </div>
     </div>
@@ -760,7 +786,7 @@
       <div class="stat-label">Effective cost per boarding &mdash; $9M annual contribution divided by 33 riders/day</div>
     </div>
     <div class="stat-item reveal">
-      <div class="stat-num"><u style="font-size:1em;">only</u>&nbsp;<span style="font-size:60px;">1</span></div>
+      <div class="stat-num"><u class="stat-only">only</u>&nbsp;<span class="stat-single">1</span></div>
       <div class="stat-label">Bus route serving all of Highland Park &mdash; no light rail, no commuter rail</div>
     </div>
     <div class="stat-item reveal">
@@ -783,7 +809,7 @@
   <div class="section">
     <div class="reveal">
       <div class="section-label">The Case for Withdrawal</div>
-      <h2 class="section-title">Six Reasons Highland Park Residents<br>Should Vote <em style="text-decoration:underline; font-style:italic;">NO</em> To DART</h2>
+      <h2 class="section-title">Six Reasons Highland Park Residents<br>Should Vote <em class="no-styled">NO</em> To DART</h2>
       <p class="section-intro">
         For over 40 years, Highland Park has faithfully funded DART. The return on that investment &mdash; in service, representation, and value &mdash; has steadily eroded. Here is the case for change.
       </p>
@@ -846,7 +872,7 @@
 <div class="quote-section">
   <div class="quote-inner">
     <span class="quote-mark">&ldquo;</span>
-    <a href="https://www.dallasnews.com/opinion/commentary/2026/03/10/highland-park-mayor-why-our-town-is-re-examining-dart/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+    <a href="https://www.dallasnews.com/opinion/commentary/2026/03/10/highland-park-mayor-why-our-town-is-re-examining-dart/" target="_blank" rel="noopener noreferrer" class="quote-link">
     <blockquote>
       The May 2 election ensures the issue is decided openly, locally and democratically by the residents who, through their elected Town Council, are accountable for every dollar allocated in the Town's budget.
     </blockquote>
@@ -866,8 +892,8 @@
 
     <div class="news-grid">
 
-      <a class="news-card reveal" href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer" style="border-color:rgba(184,150,62,0.5); background:#fdfaf5;">
-        <div class="news-source" style="color:#1a2744;">Town of Highland Park &mdash; Official DART Info Page</div>
+      <a class="news-card news-card--featured reveal" href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">
+        <div class="news-source">Town of Highland Park &mdash; Official DART Info Page</div>
         <div class="news-headline">DART Transportation Information &mdash; Official Town Resource</div>
         <div class="news-desc">The Town's comprehensive, neutral DART information hub: full financial history, service details, governance structure, withdrawal mechanics, debt obligations, and future transportation planning options. The authoritative starting point for informed voters.</div>
         <div class="news-arrow">Read the Official Info &rarr;</div>
@@ -1027,7 +1053,7 @@
           When and where do I vote?
           <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">The municipal election is <strong>Saturday, May 2, 2026</strong>. Early voting runs April 20&ndash;28. Check with Dallas County Elections at <a href="https://www.dallascountyvotes.org" style="color:var(--hp-gold)">dallascountyvotes.org</a> for polling locations and registration deadlines. You must be a registered voter in Highland Park.</div>
+        <div class="faq-a">The municipal election is <strong>Saturday, May 2, 2026</strong>. Early voting runs April 20&ndash;28. Check with Dallas County Elections at <a href="https://www.dallascountyvotes.org" class="link-gold">dallascountyvotes.org</a> for polling locations and registration deadlines. You must be a registered voter in Highland Park.</div>
       </div>
 
       <div class="faq-item reveal">
@@ -1044,8 +1070,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p style="font-family:'Oswald',sans-serif; font-size:2rem; font-weight:700; letter-spacing:0.04em; color:var(--hp-gold-light);">Vote <span style="font-style:italic; text-decoration:underline;">NO</span> to DART</p>
-  <p style="font-family:'Oswald',sans-serif; font-size:0.85rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-top:6px;">Municipal Election &middot; May 2, 2026 &middot; Highland Park, Texas</p>
+  <p class="footer-tagline">Vote <span class="no-styled">NO</span> to DART</p>
+  <p class="footer-election-date">Municipal Election &middot; May 2, 2026 &middot; Highland Park, Texas</p>
   <div class="social-share">
     <a href="https://x.com/intent/tweet?text=Vote%20NO%20to%20DART%20%E2%80%94%20Highland%20Park%2C%20May%202%2C%202026&url=https%3A%2F%2Fnotodart.org" target="_blank" rel="noopener noreferrer" title="Share on X">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1065,9 +1091,9 @@
     </a>
   </div>
 
-  <p style="margin-top:8px;">Pol. Ad. Paid for by the Highland Park Community League &middot; Ralph Perry-Miller, Treasurer<br>
+  <p class="footer-polad">Pol. Ad. Paid for by the Highland Park Community League &middot; Ralph Perry-Miller, Treasurer<br>
   4848 Lemmon Avenue, Suite 100-578 &middot; Dallas, Texas 75219</p>
-  <p style="margin-top:10px; font-size:0.72rem; color:rgba(255,255,255,0.3);">notodart.org &middot; This site is for informational and advocacy purposes. For official election information, visit <a href="https://www.dallascountyvotes.org" style="color:rgba(255,255,255,0.4)">dallascountyvotes.org</a>.</p>
+  <p class="footer-legal">notodart.org &middot; This site is for informational and advocacy purposes. For official election information, visit <a href="https://www.dallascountyvotes.org">dallascountyvotes.org</a>.</p>
 </footer>
 
 <script>
