@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: read
       deployments: write
+      issues: write
     steps:
       - uses: actions/checkout@v4
 
@@ -20,6 +21,25 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy . --project-name=dartpage
+
+      - name: Notify on deploy failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Deploy failed — ${new Date().toISOString().split('T')[0]}`,
+              body: [
+                '## Deploy Failure',
+                '',
+                `**Run:** ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                `**Branch:** ${context.ref}`,
+                `**Commit:** ${context.sha}`,
+              ].join('\n'),
+              labels: ['bug']
+            })
 
   test:
     runs-on: ubuntu-latest

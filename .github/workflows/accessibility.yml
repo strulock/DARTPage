@@ -1,0 +1,33 @@
+name: Accessibility
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pa11y and serve
+        run: npm install -g pa11y serve
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+
+      - name: Start local server
+        run: serve . -p 3000 &
+
+      - name: Wait for server
+        run: sleep 3
+
+      - name: Run pa11y accessibility check
+        run: pa11y http://localhost:3000 --standard WCAG2AA --level error
+        env:
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
