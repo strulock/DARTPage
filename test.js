@@ -38,7 +38,7 @@ check('Has structured data JSON-LD', html.includes('application/ld+json'));
 
 console.log('\nLink checks:');
 check('HP official DART info page linked', html.includes('hptx.org/599/DART-Transportation-Information'));
-check('HPCL endorsements linked', html.includes('highlandparkcommunityleague.org/2026-endorsements'));
+check('HPCL vote-no-to-dart linked', html.includes('highlandparkcommunityleague.org/vote-no-to-dart/'));
 check('Dallas County Votes linked', html.includes('dallascountyvotes.org'));
 check('Mayor DMN op-ed linked', html.includes('dallasnews.com/opinion/commentary/2026/03/10'));
 check('E&Y study linked', html.includes('acrobat.adobe.com'));
