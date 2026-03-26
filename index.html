@@ -44,39 +44,39 @@
   .header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 14px 24px;
+    padding: 18px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
   }
   .logo-area {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
   .logo-area img {
-    height: 48px;
+    height: 64px;
     width: auto;
     filter: brightness(0) invert(1);
     opacity: 0.9;
   }
   .logo-divider {
     width: 1px;
-    height: 40px;
+    height: 52px;
     background: rgba(184,150,62,0.5);
   }
   .site-name {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     color: var(--hp-gold-light);
     letter-spacing: 0.03em;
     line-height: 1.2;
   }
   .site-name span {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: rgba(255,255,255,0.55);
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -163,6 +163,7 @@
   .hero h1 .no {
     color: var(--hp-gold);
     font-style: italic;
+    font-size: clamp(4.5rem, 12vw, 9rem);
   }
   .hero h1 .dart-word {
     display: block;
@@ -256,7 +257,7 @@
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     text-align: center;
   }
@@ -644,7 +645,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-election-date">Special Election &middot; May 2, 2026 &middot; Highland Park, Texas</div>
+  <div class="hero-election-date">Municipal Election &middot; May 2, 2026 &middot; Highland Park, Texas</div>
   <h1>
     Vote <span class="no">No</span> on
     <span class="dart-word">DART</span>
@@ -674,6 +675,14 @@
     <div class="stat-item reveal">
       <div class="stat-num">33</div>
       <div class="stat-label">Average daily boardings on the single remaining Highland Park bus route</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Bus route serving all of Highland Park &mdash; no light rail, no commuter rail</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">~$747</div>
+      <div class="stat-label">Effective cost per boarding &mdash; $9M annual contribution divided by 33 riders/day</div>
     </div>
   </div>
 </div>
@@ -825,7 +834,7 @@
           When and where do I vote?
           <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">The special election is <strong>Saturday, May 2, 2026</strong>. Early voting runs April 20&ndash;28. Check with Dallas County Elections at <a href="https://www.dallascountyvotes.org" style="color:var(--hp-gold)">dallascountyvotes.org</a> for polling locations and registration deadlines. You must be a registered voter in Highland Park.</div>
+        <div class="faq-a">The municipal election is <strong>Saturday, May 2, 2026</strong>. Early voting runs April 20&ndash;28. Check with Dallas County Elections at <a href="https://www.dallascountyvotes.org" style="color:var(--hp-gold)">dallascountyvotes.org</a> for polling locations and registration deadlines. You must be a registered voter in Highland Park.</div>
       </div>
 
       <div class="faq-item reveal">
@@ -911,7 +920,7 @@
       <a class="news-card reveal" href="https://www.hptx.org/m/newsflash/home/detail/1609" target="_blank" rel="noopener">
         <div class="news-source">Town of Highland Park &mdash; Official</div>
         <div class="news-headline">Highland Park Residents to Vote on Continued DART Membership</div>
-        <div class="news-desc">The official Town announcement of the May 2 special election, including the Town's formal rationale for why voters &mdash; not the Council &mdash; should make this decision for their community.</div>
+        <div class="news-desc">The official Town announcement of the May 2 municipal election, including the Town's formal rationale for why voters &mdash; not the Council &mdash; should make this decision for their community.</div>
         <div class="news-arrow">Read More &rarr;</div>
       </a>
 
