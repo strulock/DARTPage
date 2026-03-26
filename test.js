@@ -24,6 +24,7 @@ check('Has news section', html.includes('id="news"'));
 check('Has FAQ section', html.includes('id="faq"'));
 check('Has footer', html.includes('<footer>'));
 check('Has election date May 2 2026', html.includes('May 2, 2026'));
+check('No "special election" in site copy (news headlines excluded)', !html.replace(/href="[^"]*"/gi, '').replace(/<div class="news-headline">[^<]*<\/div>/gi, '').toLowerCase().includes('special election'));
 check('Has Vote NO headline', html.includes('Vote') && html.includes('class="no"'));
 
 console.log('\nLink checks:');
