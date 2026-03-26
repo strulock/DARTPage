@@ -19,45 +19,12 @@ Based on the full repo review conducted March 26, 2026.
 - [x] **Fix `$9M` → `$8M`** — stat number, stat label (with projected $9M noted), hero subtext, and all meta tags updated
 - [x] **Share image styling** — blue background, white VOTE/TO DART, gold italic underlined NO, gold border, NoToDART.org URL
 - [x] **Share image layout** — resolved NO/TO DART overlap, rebalanced vertical spacing
-
----
-
-## Remaining Items
-
-### High Priority
-
-- [ ] **Consolidate inline styles into CSS classes**
-  Multiple elements use inline `style=` attributes that should be CSS classes. Key offenders:
-  - Nav title bar `<em style="font-style:italic; text-decoration:underline;">`
-  - Section title `<em style="text-decoration:underline;">`
-  - Footer `<p style="font-family:...">` blocks
-  - Mayor quote link `style="text-decoration:none; color:inherit;"`
-  - Featured news card `style="border-color:...; background:..."`
-  Create a reusable `.no-styled` class (italic + underline + gold) for all "NO" instances.
-
-- [ ] **Fix inconsistent NO styling**
-  In the nav title bar, "NO" is italic + underlined. In the case-for-withdrawal section title, "NO" is underlined but not italic. Should use a single CSS class everywhere for consistency.
-
-### Medium Priority
-
-- [ ] **Replace hardcoded hex colors with CSS variables**
-  Several colors used in CSS are not referenced from `:root` variables:
-  - `#fdfaf5` (featured news card hover)
-  - `#f1ece2` (news section background)
-  - `#374151`, `#4b5563` (text colors in FAQ and reasons sections)
-  Add these to the `:root` block and replace all direct usages.
-
-- [ ] **Optimize Google Fonts loading**
-  Three font families are loaded with many weight/style variants (~150–240KB total).
-  Audit which weights are actually used and remove unused variants from the import URL.
-  Consider whether all three families are necessary.
+- [x] **Consolidate inline styles into CSS classes** — all `style=` attributes removed; replaced with `.no-styled`, `.quote-link`, `.news-card--featured`, `.stat-only`, `.stat-single`, `.link-gold`, `.footer-tagline`, `.footer-election-date`, `.footer-polad`, `.footer-legal`
+- [x] **Fix inconsistent NO styling** — `.no-styled` (italic + underline) applied consistently to all three NO instances (header, h2, footer)
+- [x] **Replace hardcoded hex colors with CSS variables** — 5 new variables added to `:root`; all hardcoded hex colors replaced throughout CSS
+- [x] **Optimize Google Fonts loading** — audited all weights; all are in use; added missing `fonts.gstatic.com` preconnect
 
 ### Lower Priority
 
-- [ ] **Add deployment notifications on failure**
-  The deploy workflow completes silently on failure. Add a step to post a notification
-  (GitHub issue, Slack, or email) when deployment fails.
-
-- [ ] **Add Lighthouse / accessibility CI step**
-  Add a CI step using `pa11y` or `axe` to automatically catch accessibility regressions
-  on each PR. Could be a separate workflow file.
+- [x] **Add deployment notifications on failure** — `deploy.yml` now creates a GitHub issue (labeled `bug`) with a link to the failed run when deploy fails
+- [x] **Add accessibility CI step** — new `accessibility.yml` workflow runs `pa11y` at WCAG2AA level on every PR and push to main using a local server and system Chrome
