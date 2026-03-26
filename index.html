@@ -712,6 +712,34 @@
     .site-name { font-size: 0.9rem; }
   }
 
+  /* ── SKIP NAV ── */
+  .skip-nav {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .skip-nav:focus {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: var(--hp-white);
+    color: var(--hp-navy);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    padding: 10px 20px;
+    border: 2px solid var(--hp-navy);
+    z-index: 9999;
+    text-decoration: none;
+  }
+
   /* ── UTILITY CLASSES ── */
   .no-styled { font-style: italic; text-decoration: underline; }
   .link-gold { color: var(--hp-gold-text); }
@@ -734,6 +762,7 @@
 </style>
 </head>
 <body>
+<a class="skip-nav" href="#main-content">Skip to main content</a>
 
 <!-- HEADER -->
 <header>
@@ -759,7 +788,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main-content">
   <div class="hero-election-date">Municipal Election &middot; May 2, 2026 &middot; Highland Park, Texas</div>
   <h1>
     Vote <span class="no">NO</span> to
@@ -784,7 +813,7 @@
     </div>
     <div class="stat-item reveal">
       <div class="stat-num">&gt;$700 per ride</div>
-      <div class="stat-label">Effective cost per boarding &mdash; $9M annual contribution divided by 33 riders/day</div>
+      <div class="stat-label">Effective cost per boarding &mdash; $8M annual contribution divided by 33 riders/day</div>
     </div>
     <div class="stat-item reveal">
       <div class="stat-num"><u class="stat-only">only</u>&nbsp;<span class="stat-single">1</span></div>
@@ -1138,12 +1167,14 @@
   toggle.addEventListener('click', function() {
     var isOpen = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
   });
   // Close nav when a link is tapped
   nav.querySelectorAll('a').forEach(function(link) {
     link.addEventListener('click', function() {
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation menu');
     });
   });
 </script>

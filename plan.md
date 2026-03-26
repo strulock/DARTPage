@@ -24,7 +24,24 @@ Based on the full repo review conducted March 26, 2026.
 - [x] **Replace hardcoded hex colors with CSS variables** — 5 new variables added to `:root`; all hardcoded hex colors replaced throughout CSS
 - [x] **Optimize Google Fonts loading** — audited all weights; all are in use; added missing `fonts.gstatic.com` preconnect
 
-### Lower Priority
-
 - [x] **Add deployment notifications on failure** — `deploy.yml` now creates a GitHub issue (labeled `bug`) with a link to the failed run when deploy fails
-- [x] **Add accessibility CI step** — new `accessibility.yml` workflow runs `pa11y` at WCAG2AA level on every PR and push to main using a local server and system Chrome
+- [x] **Add accessibility CI step** — new `accessibility.yml` workflow runs `pa11y` at WCAG2AA level on every PR and push to main; caught and fixed 35 real contrast violations
+- [x] **Fix WCAG2AA color contrast** — added `--hp-gold-text: #7c5e00` (5.4:1 on cream) for gold text on light backgrounds; darkened `--hp-gray` to #595f6b; all 35 pa11y errors resolved
+
+---
+
+## Remaining Items
+
+The original plan is fully complete. Potential next steps based on the site's mission:
+
+### Content / Accuracy
+- [x] **Update `$9M annual contribution` in stat label copy** — corrected to `$8M`
+- [ ] **Verify election date accuracy** — confirm May 2, 2026 is still the official election date and update if needed
+
+### Performance
+- [ ] **Convert `hpcl-logo.png` to WebP** — no converter available in current environment; requires `cwebp`, ImageMagick, or `sharp` CLI
+- [x] **Font loading already optimal** — preconnect to both `fonts.googleapis.com` and `fonts.gstatic.com` is in place; `display=swap` is set; adding a stylesheet `rel="preload"` would be redundant
+
+### Robustness
+- [x] **Add skip-navigation link** — `.skip-nav` added; visually hidden, revealed on focus; links to `#main-content` on the hero section
+- [x] **Fix nav toggle aria-label** — JS now toggles `aria-label` between "Open navigation menu" and "Close navigation menu" on click and on link tap
