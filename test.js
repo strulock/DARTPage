@@ -27,6 +27,13 @@ check('Has election date May 2 2026', html.includes('May 2, 2026'));
 check('No "special election" in site copy (news headlines excluded)', !html.replace(/href="[^"]*"/gi, '').replace(/<div class="news-headline">[^<]*<\/div>/gi, '').toLowerCase().includes('special election'));
 check('Has Vote NO headline', html.includes('Vote') && html.includes('class="no"'));
 
+check('Has meta description', html.includes('<meta name="description"'));
+check('Has canonical link', html.includes('<link rel="canonical"'));
+check('Has OG title', html.includes('property="og:title"'));
+check('Has OG description', html.includes('property="og:description"'));
+check('Has Twitter card', html.includes('name="twitter:card"'));
+check('Logo hosted locally', html.includes('src="hpcl-logo.png"'));
+
 console.log('\nLink checks:');
 check('HP official DART info page linked', html.includes('hptx.org/599/DART-Transportation-Information'));
 check('HPCL endorsements linked', html.includes('highlandparkcommunityleague.org/2026-endorsements'));
