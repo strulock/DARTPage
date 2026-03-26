@@ -16,7 +16,7 @@ function check(description, condition) {
 
 console.log('\nContent checks:');
 check('Has doctype', html.startsWith('<!DOCTYPE html>'));
-check('Has page title', html.includes('<title>Vote NO on DART'));
+check('Has page title', html.includes('<title>Vote NO to DART'));
 check('Has hero section', html.includes('class="hero"'));
 check('Has stat band', html.includes('class="stat-band"'));
 check('Has reasons section', html.includes('id="reasons"'));
