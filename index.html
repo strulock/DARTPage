@@ -481,6 +481,129 @@
     max-width: 680px;
   }
   .faq-item.open .faq-a { display: block; }
+  .faq-sources-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding: 6px 12px;
+    background: none;
+    border: 1px solid rgba(184,150,62,0.5);
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hp-gold-text);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .faq-sources-btn:hover,
+  .faq-sources-btn:focus-visible {
+    background: var(--hp-gold);
+    border-color: var(--hp-gold);
+    color: var(--hp-white);
+    outline: none;
+  }
+  .faq-sources-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ── SOURCES MODAL ── */
+  .sources-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10vh 20px 20px;
+    background: rgba(26,39,68,0.78);
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  .sources-modal.open { display: flex; }
+  .sources-modal-card {
+    background: var(--hp-white);
+    border-top: 3px solid var(--hp-gold);
+    max-width: 620px;
+    width: 100%;
+    padding: 36px 40px 32px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: sourcesFadeIn 0.2s ease-out;
+  }
+  @keyframes sourcesFadeIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .sources-modal-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hp-gold-text);
+    margin-bottom: 8px;
+  }
+  .sources-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--hp-navy);
+    line-height: 1.35;
+    margin-bottom: 20px;
+    padding-right: 32px;
+  }
+  .sources-modal-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: var(--hp-gray-dark);
+    line-height: 1.7;
+  }
+  .sources-modal-body ol,
+  .sources-modal-body ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  .sources-modal-body li { margin-bottom: 10px; }
+  .sources-modal-body li:last-child { margin-bottom: 0; }
+  .sources-modal-body a {
+    color: var(--hp-gold-text);
+    text-decoration: underline;
+    text-decoration-color: rgba(184,150,62,0.4);
+    text-underline-offset: 2px;
+  }
+  .sources-modal-body a:hover { color: var(--hp-navy); }
+  .sources-modal-empty {
+    font-style: italic;
+    color: var(--hp-gray);
+  }
+  .sources-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--hp-navy);
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sources-modal-close:hover,
+  .sources-modal-close:focus-visible {
+    background: var(--hp-gold);
+    color: var(--hp-white);
+    outline: none;
+  }
+  .sources-modal-close svg { width: 18px; height: 18px; }
+  body.sources-modal-open { overflow: hidden; }
 
   /* ── NEWS LINKS ── */
   .news-bg {
@@ -691,6 +814,10 @@
 
     .faq-q { font-size: 0.95rem; padding: 18px 0; }
     .faq-a { font-size: 0.88rem; }
+    .sources-modal { padding: 6vh 12px 20px; }
+    .sources-modal-card { padding: 28px 22px 24px; }
+    .sources-modal-title { font-size: 1.15rem; }
+    .sources-modal-body { font-size: 0.88rem; }
 
     .news-grid { grid-template-columns: 1fr; }
     .news-card { padding: 20px; }
@@ -1059,7 +1186,63 @@
           How much is Highland Park actually paying DART each year?
           <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">In 2025, Highland Park contributed approximately $8 million to DART &mdash; just 1% of DART's $900 million sales tax revenue. The 2026 projection is approximately $9 million. In return, DART's total service investment within town limits was approximately $1.9 million in 2023 &mdash; primarily the Preston Road bus route averaging about 33 riders per day.</div>
+        <div class="faq-a">In 2025, Highland Park contributed approximately $8 million to DART &mdash; just 1% of DART's $900 million sales tax revenue. The 2026 projection is approximately $9 million. In return, DART's total service investment within town limits was approximately $1.9 million in 2023 &mdash; primarily the Preston Road bus route averaging about 33 riders per day. That's roughly <strong>30 cents on the dollar</strong>.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          How much does each Preston Road bus ride actually cost us?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Route 237 along Preston Road is our only DART bus line, averaging about 33 riders per day against an $8 million annual contribution &mdash; which works out to <strong>over $600 per ride</strong>. Using DART's own published cost data, Highland Park could contract equivalent Preston Road service for approximately $270,000 per year &mdash; a fraction of what we pay DART today.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Haven't we already paid our fair share?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Since 1983, Highland Park has sent more than <strong>$114 million</strong> to DART. After withdrawal, we will repay approximately $30&ndash;40 million in remaining debt obligations over 4&ndash;5 years, bringing our total contribution to roughly <strong>$150 million</strong>. By comparison, Dallas currently receives about 169% return on its contribution while Highland Park receives roughly 30%. We have more than paid for the system our community uses.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Does Highland Park have a real voice on the DART board?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">No. For decades, Highland Park has shared a single DART board seat with three other small cities. DART's proposed &ldquo;fix&rdquo; would give Highland Park its own seat &mdash; with a weighted vote of approximately <strong>2%</strong>. That is not meaningful representation. Combined with the fact that no new city has joined DART in more than 40 years, the current regional model is broken.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Is DART a healthy, well-run agency?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">DART is in crisis. Its board recently fired the CEO. It is planning a 14% service reduction &mdash; the largest in its history. Farebox revenue covers just <strong>3&ndash;4%</strong> of its $1.7 billion annual budget, and total debt sits at approximately $3.8 billion. DART's paratransit program drew nearly 2,000 complaints in a recent three-month period, including hours-long waits and missed trips for elderly and disabled riders. In 1983, voters were promised an agency with 25&ndash;35 employees and 450,000 daily riders. Today DART has roughly 3,800 employees, and farebox revenue covers less than 10% of salaries alone.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          What about DART's proposed General Mobility Program?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">DART's proposed General Mobility Program has been pitched as the compromise that keeps member cities whole. In practice, it would return approximately <strong>$4.4 million to Highland Park over six years</strong> &mdash; less than half of a single year's contribution. It does not address the underlying structural imbalance between what Highland Park pays and what it receives.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Why is this vote urgent &mdash; can't we revisit it later?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Under state law, member cities can only vote to withdraw from DART <strong>once every six years</strong>. Combined with the 4&ndash;5 year debt buydown that follows withdrawal, waiting another cycle means paying tens of millions more with no exit option available for roughly a decade. It is effectively now or never.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          How does staying in DART affect public safety and town services?
+          <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a">Property tax rates are capped by state law, so <strong>sales tax is Highland Park's only flexible funding source</strong>. Our DART contribution has grown to $8 million and is projected to reach $9 million and keep climbing. Without reclaiming our sales tax penny, the town projects public safety staffing cuts within 6&ndash;7 years. Reclaiming the penny funds police, fire, infrastructure, and modern transit designed for Highland Park.</div>
       </div>
 
       <div class="faq-item reveal">
@@ -1067,7 +1250,7 @@
           What about residents who rely on paratransit or have mobility needs?
           <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
-        <div class="faq-a">This is a genuine concern the town takes seriously. Highland Park is committed to ensuring alternative transit options are in place before any withdrawal takes effect. Third-party providers, rideshare partnerships, and coordinated regional connectivity options are being evaluated to ensure no resident is left without options.</div>
+        <div class="faq-a">Elderly and disabled residents will continue to have door-to-door service &mdash; either through DART's paratransit program (which it is required to offer to adjacent communities) or through Via, at an estimated <strong>$40&ndash;$50 per ride</strong>. For context, DART's own paratransit costs approximately $57 per ride. The Town has been working with Via since October 2024 on an on-demand microtransit service offering point-to-point rides within Highland Park and connections to DART rail at Mockingbird Station. No resident who depends on paratransit will be left without options.</div>
       </div>
 
       <div class="faq-item reveal">
@@ -1095,6 +1278,18 @@
       </div>
 
     </div>
+  </div>
+</div>
+
+<!-- SOURCES MODAL (populated dynamically) -->
+<div class="sources-modal" id="sources-modal" role="dialog" aria-modal="true" aria-labelledby="sources-modal-title" aria-hidden="true">
+  <div class="sources-modal-card" role="document">
+    <button class="sources-modal-close" type="button" aria-label="Close sources">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="sources-modal-label">Sources</div>
+    <div class="sources-modal-title" id="sources-modal-title"></div>
+    <div class="sources-modal-body" id="sources-modal-body"></div>
   </div>
 </div>
 
@@ -1127,6 +1322,99 @@
 </footer>
 
 <script>
+  // ──────────────────────────────────────────────────────────────────────────
+  // FAQ SOURCES
+  // One entry per FAQ item, in the same order as the FAQ list above.
+  // To add sources, replace the empty string with HTML. Example:
+  //   `<ol>
+  //      <li><a href="https://example.com/report.pdf" target="_blank" rel="noopener noreferrer">DART 2023 Annual Report</a> &mdash; page 14, Highland Park contribution table.</li>
+  //      <li>Town of Highland Park FY2025 budget, schedule B-4.</li>
+  //    </ol>`
+  // Leave the string empty until sources are finalized &mdash; the modal will
+  // display a "Sources will be added..." placeholder instead.
+  // ──────────────────────────────────────────────────────────────────────────
+  var FAQ_SOURCES = [
+    /*  1 */ '', // What does a "No" vote actually mean on May 2?
+    /*  2 */ '', // What happens to DART service if we vote No?
+    /*  3 */ '', // Will we still have to pay DART taxes after withdrawal?
+    /*  4 */ '', // How much is Highland Park actually paying DART each year?
+    /*  5 */ '', // How much does each Preston Road bus ride actually cost us?
+    /*  6 */ '', // Haven't we already paid our fair share?
+    /*  7 */ '', // Does Highland Park have a real voice on the DART board?
+    /*  8 */ '', // Is DART a healthy, well-run agency?
+    /*  9 */ '', // What about DART's proposed General Mobility Program?
+    /* 10 */ '', // Why is this vote urgent — can't we revisit it later?
+    /* 11 */ '', // How does staying in DART affect public safety and town services?
+    /* 12 */ '', // What about residents who rely on paratransit or have mobility needs?
+    /* 13 */ '', // Isn't regional transit important? Won't this hurt the DFW region?
+    /* 14 */ '', // When and where do I vote?
+    /* 15 */ ''  // Who is behind this campaign?
+  ];
+
+  // Sources modal wiring
+  (function() {
+    var modal = document.getElementById('sources-modal');
+    if (!modal) return;
+    var titleEl = document.getElementById('sources-modal-title');
+    var bodyEl = document.getElementById('sources-modal-body');
+    var closeBtn = modal.querySelector('.sources-modal-close');
+    var lastFocus = null;
+
+    function openModal(title, html) {
+      lastFocus = document.activeElement;
+      titleEl.textContent = title;
+      if (html && html.trim()) {
+        bodyEl.innerHTML = html;
+      } else {
+        bodyEl.innerHTML = '<p class="sources-modal-empty">Sources for this answer are being compiled and will be added here as they are finalized.</p>';
+      }
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('sources-modal-open');
+      closeBtn.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('sources-modal-open');
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // Inject a "Sources" button into every FAQ answer
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item, idx) {
+      var answer = item.querySelector('.faq-a');
+      var qBtn = item.querySelector('.faq-q');
+      if (!answer || !qBtn) return;
+
+      // Extract just the question text (strip the chevron SVG)
+      var qText = '';
+      qBtn.childNodes.forEach(function(n) {
+        if (n.nodeType === Node.TEXT_NODE) qText += n.textContent;
+      });
+      qText = qText.replace(/\s+/g, ' ').trim();
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'faq-sources-btn';
+      btn.setAttribute('aria-label', 'View sources for: ' + qText);
+      btn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg> Sources';
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openModal(qText, FAQ_SOURCES[idx] || '');
+      });
+      answer.appendChild(btn);
+    });
+  })();
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function(btn) {
     btn.addEventListener('click', function() {
