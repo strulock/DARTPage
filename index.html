@@ -1334,21 +1334,107 @@
   // display a "Sources will be added..." placeholder instead.
   // ──────────────────────────────────────────────────────────────────────────
   var FAQ_SOURCES = [
-    /*  1 */ '', // What does a "No" vote actually mean on May 2?
-    /*  2 */ '', // What happens to DART service if we vote No?
-    /*  3 */ '', // Will we still have to pay DART taxes after withdrawal?
-    /*  4 */ '', // How much is Highland Park actually paying DART each year?
-    /*  5 */ '', // How much does each Preston Road bus ride actually cost us?
-    /*  6 */ '', // Haven't we already paid our fair share?
-    /*  7 */ '', // Does Highland Park have a real voice on the DART board?
-    /*  8 */ '', // Is DART a healthy, well-run agency?
-    /*  9 */ '', // What about DART's proposed General Mobility Program?
-    /* 10 */ '', // Why is this vote urgent — can't we revisit it later?
-    /* 11 */ '', // How does staying in DART affect public safety and town services?
-    /* 12 */ '', // What about residents who rely on paratransit or have mobility needs?
-    /* 13 */ '', // Isn't regional transit important? Won't this hurt the DFW region?
-    /* 14 */ '', // When and where do I vote?
-    /* 15 */ ''  // Who is behind this campaign?
+    /*  1 — What does a "No" vote actually mean on May 2? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; DART Transportation Information</a>: official ballot language and withdrawal mechanics under Texas law.</li>
+    </ol>`,
+
+    /*  2 — What happens to DART service if we vote No? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; DART Transportation Information</a>: confirms service cessation upon election certification and ongoing evaluation of alternative transit providers.</li>
+    </ol>`,
+
+    /*  3 — Will we still have to pay DART taxes after withdrawal? */
+    `<ol>
+      <li><a href="https://statutes.capitol.texas.gov/Docs/TN/htm/TN.452.htm" target="_blank" rel="noopener noreferrer">Texas Transportation Code, Chapter 452, Subchapter Q</a>: the withdrawal and obligation-buydown statute.</li>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; DART Transportation Information</a>: outstanding-obligation buydown estimated at $30&ndash;40 million.</li>
+      <li><a href="https://ridewithdata.substack.com/" target="_blank" rel="noopener noreferrer">Dallas Area Transit Alliance</a>: independent estimate of ~$30&ndash;40M over roughly four years.</li>
+    </ol>`,
+
+    /*  4 — How much is Highland Park actually paying DART each year? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; DART Transportation Information</a>: ~$8M contributed in 2025, with ~$9M projected for 2026.</li>
+      <li>Ernst &amp; Young 2023 DART Cost Allocation Study (commissioned by DART): $6.3M contributed by Highland Park vs. $1.9M in services received &mdash; cited on the Town page above.</li>
+      <li><a href="https://www.peoplenewspapers.com/" target="_blank" rel="noopener noreferrer">People Newspapers &mdash; &ldquo;Why Highland Park Is Re-Examining DART,&rdquo; Dec. 9, 2025</a>: summarizes the EY findings.</li>
+    </ol>`,
+
+    /*  5 — How much does each Preston Road bus ride actually cost us? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park</a>: ~12,000 annual boardings on Route 237, averaging ~33 riders per day.</li>
+      <li><a href="https://www.dart.org/about/financials" target="_blank" rel="noopener noreferrer">DART FY2026 Operating Budget Outlook (p.11)</a>: GoLink microtransit subsidy of $15.77/rider (FY2025), $16.03/rider (FY2026).</li>
+      <li><a href="https://www.changinglanesnewsletter.com/" target="_blank" rel="noopener noreferrer">Changing Lanes Newsletter, July 2025</a>: LA Metro microtransit cost of ~$29/ride (FY2024) &mdash; used as a national benchmark.</li>
+    </ol>
+    <p style="margin-top:14px;"><strong>Cost-per-ride math:</strong> $8,000,000 &divide; (33 riders &times; 365 days) &asymp; $664/ride.</p>
+    <p><strong>Contract-alternative math:</strong> 12,045 rides &times; $15.77 (DART GoLink) &asymp; $190K; &times; $17.50 (Via mid-range) &asymp; $211K; &times; $29 (LA Metro) &asymp; $349K. The ~$270K figure sits within this range.</p>`,
+
+    /*  6 — Haven't we already paid our fair share? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park</a>: more than $114 million in dedicated sales tax revenue sent to DART since 1983.</li>
+      <li><a href="https://www.hptx.org/DocumentCenter/View/8034" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; Town Council press release, Nov. 2025</a>: reiterates the $114M+ cumulative contribution.</li>
+      <li><a href="https://ridewithdata.substack.com/" target="_blank" rel="noopener noreferrer">Dallas Area Transit Alliance</a>: ~$30&ndash;40M remaining buydown over ~4 years, bringing the cumulative total to roughly $150M.</li>
+      <li><a href="https://www.peoplenewspapers.com/" target="_blank" rel="noopener noreferrer">People Newspapers</a>, citing the Ernst &amp; Young Cost Allocation Study: Dallas receives 169% service value for its contribution; Highland Park receives 30%.</li>
+    </ol>`,
+
+    /*  7 — Does Highland Park have a real voice on the DART board? */
+    `<ol>
+      <li><a href="https://www.hptx.org/m/faq?cat=36" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; FAQ</a>: Highland Park shares a single DART board seat with Addison, Richardson, and University Park.</li>
+      <li><a href="https://notodart.org" target="_blank" rel="noopener noreferrer">notodart.org</a>: the proposed restructuring gives Highland Park a weighted vote of 0.44 &mdash; roughly 2% of the board's total voting power.</li>
+    </ol>`,
+
+    /*  8 — Is DART a healthy, well-run agency? */
+    `<ol>
+      <li><strong>CEO termination:</strong> <a href="https://www.dart.org/" target="_blank" rel="noopener noreferrer">DART official statement, April 4, 2026</a>. Coverage from <a href="https://www.keranews.org/" target="_blank" rel="noopener noreferrer">KERA News</a> and <a href="https://communityimpact.com/" target="_blank" rel="noopener noreferrer">Community Impact (April 9, 2026)</a>.</li>
+      <li><strong>14% service cut:</strong> <a href="https://ridewithdata.substack.com/" target="_blank" rel="noopener noreferrer">Dallas Area Transit Alliance, July 7, 2025</a> &mdash; nine bus routes cut and frequencies reduced; the largest service reduction in DART's history.</li>
+      <li><strong>Farebox &amp; budget:</strong> <a href="https://www.hptx.org/m/faq?cat=36" target="_blank" rel="noopener noreferrer">Town of Highland Park FAQ</a> &mdash; fare revenue covers 3&ndash;4% of DART's ~$1.7B annual budget.</li>
+      <li><strong>Employee count:</strong> <a href="https://www.dart.org/about/financials" target="_blank" rel="noopener noreferrer">DART FY2026 Operating Budget (p.35)</a> &mdash; 3,830 budgeted positions vs. the 25&ndash;35 originally projected in 1983 DART campaign materials.</li>
+      <li><strong>Paratransit complaints:</strong> Dallas Morning News reporting (Sept.&ndash;Nov. 2024) on the Transdev paratransit transition; <a href="https://communityimpact.com/" target="_blank" rel="noopener noreferrer">Community Impact, Oct. 9, 2024</a> (10,000+ first-day complaint calls); <a href="https://www.wfaa.com/" target="_blank" rel="noopener noreferrer">WFAA, May 2025</a> (paratransit workers' strike authorization).</li>
+      <li><strong>Outstanding debt:</strong> DART published financial statements show ~$3.8B outstanding.</li>
+    </ol>`,
+
+    /*  9 — What about DART's proposed General Mobility Program? */
+    `<ol>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park</a>: the GMP would return approximately $4.4 million to Highland Park over a six-year period per DART meeting documents.</li>
+      <li><a href="https://ridewithdata.substack.com/" target="_blank" rel="noopener noreferrer">Dallas Area Transit Alliance</a>: DART Committee-of-the-Whole meeting presentation, Feb. 10, 2026.</li>
+    </ol>`,
+
+    /* 10 — Why is this vote urgent — can't we revisit it later? */
+    `<ol>
+      <li><a href="https://statutes.capitol.texas.gov/Docs/TN/htm/TN.452.htm" target="_blank" rel="noopener noreferrer">Texas Transportation Code, Chapter 452, Subchapter Q</a>: member cities may vote on withdrawal only once every six years.</li>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park</a> and <a href="https://www.uptexas.org/531/Transit" target="_blank" rel="noopener noreferrer">Town of University Park &mdash; Transit</a>: both confirm the six-year cycle.</li>
+      <li><a href="https://ridewithdata.substack.com/" target="_blank" rel="noopener noreferrer">Dallas Area Transit Alliance</a>: 4&ndash;5 year debt-buydown estimate following withdrawal.</li>
+    </ol>`,
+
+    /* 11 — How does staying in DART affect public safety and town services? */
+    `<ol>
+      <li><a href="https://capitol.texas.gov/BillLookup/History.aspx?LegSess=86R&amp;Bill=SB2" target="_blank" rel="noopener noreferrer">Texas Senate Bill 2 (2019)</a>: caps municipal property-tax revenue growth at 3.5% without voter approval.</li>
+      <li><a href="https://www.peoplenewspapers.com/" target="_blank" rel="noopener noreferrer">People Newspapers &mdash; &ldquo;Why Highland Park Is Re-Examining DART&rdquo;</a>: discusses SB2's impact on Highland Park's revenue flexibility.</li>
+      <li><a href="https://www.hptx.org/m/faq?cat=36" target="_blank" rel="noopener noreferrer">Town of Highland Park FAQ</a>: &ldquo;sales tax is the only meaningful flexible revenue for cities like ours.&rdquo;</li>
+      <li><a href="https://www.hptx.org/599/DART-Transportation-Information" target="_blank" rel="noopener noreferrer">Town of Highland Park &mdash; DART Transportation Information</a>: Highland Park currently dedicates 1% (half of its 2% state-maximum sales-tax capacity) to DART.</li>
+      <li>The 6&ndash;7 year public safety staffing projection reflects HPCL analysis of the Town budget trajectory under SB2 constraints.</li>
+    </ol>`,
+
+    /* 12 — What about residents who rely on paratransit or have mobility needs? */
+    `<ol>
+      <li><a href="https://notodart.org" target="_blank" rel="noopener noreferrer">notodart.org</a>, citing University Park's paratransit-alternatives evaluation: Via microtransit at an estimated $40&ndash;$50 per paratransit ride and $15&ndash;$20 per general microtransit ride.</li>
+      <li><a href="https://www.dart.org/about/financials" target="_blank" rel="noopener noreferrer">DART FY2026 Operating Budget Outlook (p.11)</a>: DART's own paratransit subsidy is $57.13/ride (FY2025), rising to $58.19 (FY2026). GoLink microtransit subsidy: $15.77 (FY2025), $16.03 (FY2026).</li>
+    </ol>`,
+
+    /* 13 — Isn't regional transit important? Won't this hurt the DFW region? */
+    `<ol>
+      <li><a href="https://www.hptx.org/m/faq?cat=36" target="_blank" rel="noopener noreferrer">Town of Highland Park FAQ</a>: no new cities have joined DART since the system's creation in 1983.</li>
+      <li><a href="https://www.peoplenewspapers.com/" target="_blank" rel="noopener noreferrer">People Newspapers</a>: no new cities have joined DART in four decades, and two original members withdrew.</li>
+      <li>Ernst &amp; Young 2023 Cost Allocation Study, cited by <a href="https://www.peoplenewspapers.com/" target="_blank" rel="noopener noreferrer">People Newspapers</a>: Dallas receives service value equal to 169% of its contribution; Highland Park receives only 30%.</li>
+    </ol>`,
+
+    /* 14 — When and where do I vote? */
+    `<ol>
+      <li><a href="https://www.dallascountyvotes.org" target="_blank" rel="noopener noreferrer">Dallas County Elections</a>: official polling locations, early-voting schedule, and voter-registration deadlines.</li>
+    </ol>`,
+
+    /* 15 — Who is behind this campaign? */
+    `<ol>
+      <li><a href="https://highlandparkcommunityleague.org/" target="_blank" rel="noopener noreferrer">Highland Park Community League</a>: nonpartisan civic organization and campaign sponsor. Pol. Ad. Paid for by the Highland Park Community League, Ralph Perry-Miller, Treasurer.</li>
+    </ol>`
   ];
 
   // Sources modal wiring
