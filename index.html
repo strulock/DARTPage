@@ -172,9 +172,9 @@
   .dmn-burst {
     position: absolute;
     top: 22px;
-    right: 24px;
-    width: 180px;
-    height: 180px;
+    left: 24px;
+    width: 300px;
+    height: 300px;
     z-index: 5;
     display: block;
     transform: rotate(-8deg);
@@ -197,7 +197,7 @@
     fill: var(--hp-navy);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 0.6px;
   }
   .burst-sub {
@@ -205,21 +205,21 @@
     font-family: 'Source Serif 4', Georgia, serif;
     font-style: italic;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
   }
   .burst-no {
     fill: var(--hp-gold-text);
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 900;
     font-style: italic;
-    font-size: 38px;
+    font-size: 46px;
     text-decoration: underline;
   }
   .burst-target {
     fill: var(--hp-navy);
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 0.5px;
   }
   .hero::before {
@@ -794,7 +794,7 @@
     .section { padding: 60px 20px; }
     .hero { padding: 60px 20px 56px; }
     .quote-section { padding: 60px 20px; }
-    .dmn-burst { width: 140px; height: 140px; top: 16px; right: 16px; }
+    .dmn-burst { width: 220px; height: 220px; top: 16px; left: 16px; }
   }
 
   /* ── RESPONSIVE: MOBILE ── */
@@ -831,7 +831,7 @@
     .site-name span { font-size: 0.62rem; }
 
     .hero { padding: 48px 16px 44px; }
-    .dmn-burst { width: 110px; height: 110px; top: 12px; right: 12px; }
+    .dmn-burst { width: 170px; height: 170px; top: 12px; left: 12px; }
     .hero-election-date {
       font-size: 0.6rem;
       letter-spacing: 0.15em;
@@ -979,13 +979,14 @@
      aria-label="Dallas Morning News endorses voting NO to DART — read the editorial">
     <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
       <polygon class="burst-points" points="100,5 112.5,21 129.4,9.7 136.3,28.7 155.9,23.1 156.6,43.4 176.9,44.2 171.3,63.7 190.4,70.6 179,87.5 195,100 179,112.5 190.4,129.4 171.3,136.3 176.9,155.8 156.6,156.6 155.9,176.9 136.3,171.3 129.4,190.3 112.5,179 100,195 87.5,179 70.6,190.3 63.7,171.3 44.1,176.9 43.4,156.6 23.1,155.9 28.7,136.3 9.7,129.4 21,112.5 5,100 21,87.5 9.7,70.6 28.7,63.7 23.1,44.2 43.4,43.4 44.1,23.1 63.7,28.7 70.6,9.7 87.5,21" />
-      <circle class="burst-disc-outer" cx="100" cy="100" r="68" />
-      <circle class="burst-disc-inner" cx="100" cy="100" r="64" />
-      <circle class="burst-ring" cx="100" cy="100" r="59" />
-      <text class="burst-label" x="100" y="65" text-anchor="middle">DALLAS MORNING NEWS</text>
-      <text class="burst-sub" x="100" y="83" text-anchor="middle">endorses voting</text>
-      <text class="burst-no" x="100" y="125" text-anchor="middle">NO</text>
-      <text class="burst-target" x="100" y="148" text-anchor="middle">to DART</text>
+      <circle class="burst-disc-outer" cx="100" cy="100" r="76" />
+      <circle class="burst-disc-inner" cx="100" cy="100" r="72" />
+      <circle class="burst-ring" cx="100" cy="100" r="67" />
+      <text class="burst-label" x="100" y="58" text-anchor="middle">DALLAS MORNING</text>
+      <text class="burst-label" x="100" y="73" text-anchor="middle">NEWS</text>
+      <text class="burst-sub" x="100" y="91" text-anchor="middle">endorses voting</text>
+      <text class="burst-no" x="100" y="135" text-anchor="middle">NO</text>
+      <text class="burst-target" x="100" y="158" text-anchor="middle">to DART</text>
     </svg>
   </a>
   <div class="hero-election-date">Municipal Election &middot; May 2, 2026 &middot; Highland Park, Texas</div>
