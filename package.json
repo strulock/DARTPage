@@ -2,7 +2,7 @@
   "name": "dartpage",
   "private": true,
   "scripts": {
-    "test": "htmlhint index.html && node test.js"
+    "test": "htmlhint public/index.html && node test.js"
   },
   "devDependencies": {
     "htmlhint": "^1.1.4"

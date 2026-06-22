@@ -20,7 +20,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=dartpage
+          command: pages deploy public --project-name=dartpage
 
       - name: Notify on deploy failure
         if: failure()

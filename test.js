@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const html = fs.readFileSync('index.html', 'utf8');
-const stats = fs.statSync('index.html');
+const html = fs.readFileSync('public/index.html', 'utf8');
+const stats = fs.statSync('public/index.html');
 let passed = 0;
 let failed = 0;
 
@@ -73,7 +73,7 @@ check('Internal anchor #faq exists', html.includes('id="faq"'));
 check('Page file size under 200KB', stats.size < 200 * 1024);
 check('Page file size warning if over 100KB', (() => {
   if (stats.size >= 100 * 1024) {
-    console.log(`    (info: index.html is ${Math.round(stats.size / 1024)}KB — consider optimizing)`);
+    console.log(`    (info: public/index.html is ${Math.round(stats.size / 1024)}KB — consider optimizing)`);
   }
   return true;
 })());

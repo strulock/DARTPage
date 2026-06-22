@@ -22,7 +22,7 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
 
       - name: Start local server
-        run: serve . -p 3000 &
+        run: serve public -p 3000 &
 
       - name: Wait for server
         run: sleep 3
