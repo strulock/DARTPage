@@ -20,6 +20,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Create the Pages project on first run; no-op (and don't fail) if it already exists.
+          preCommands: npx wrangler pages project create dartpage --production-branch=main || echo "Pages project 'dartpage' already exists — continuing"
           command: pages deploy public --project-name=dartpage
 
       - name: Notify on deploy failure
